@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta charset="utf-8">
         <title>
-            Test your server for Heartbleed (CVE-2014-0160)
+            Patch your server against Heartbleed
         </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Loading Bootstrap -->
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css"><!-- Loading Flat UI -->
@@ -16,29 +16,20 @@
     <![endif]-->
 
 <style>
-/* Sticky footer styles
--------------------------------------------------- */
 html {
   position: relative;
   min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
   margin-bottom: 80px;
 }
 #footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
   height: 70px;
   background-color: #f5f5f5;
 }
-
-
-/* Custom page CSS
--------------------------------------------------- */
-/* Not required for template or sticky footer method. */
 
 .container {
   width: auto;
@@ -53,6 +44,12 @@ body {
     float: right;
     width: 200px;
     margin-right: -200px;
+}
+
+.nick {
+  float: left;
+  width: 160px;
+  margin-left: -175px;
 }
 
 #hostname {
@@ -85,7 +82,7 @@ h3 {
     line-height: 40px;
 }
 
-.faq {
+.price {
     right: 20px;
     font-size: 40px;
     position: absolute;
@@ -105,119 +102,135 @@ h1 {
     font-size: 14px;
 }
 
-.lookfaq {
+.unable {
     font-size: 20px;
 }
 
+.about {
+  background: #eee;
+  padding: 10px;
+  margin-top: 15px;
+}
+
 </style>
-    </head>
     <body>
-
-        <a href="https://github.com/FiloSottile/Heartbleed"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
-
         <div class="container">
             <div class="page-header">
                 <img class="heart" src="images/heartbleed.png">
                 <h1>
-                    <div class="faq"><a href="faq.html">FAQ/status</a></div>
-                    Heartbleed test
+                    <div class="price">only $4,983</div>
+                    Heartbleed Fixer
                 </h1>
             </div>
             <h3 class="bg-info banner">
-                If there are problems, head to the <a href="faq.html">FAQ</a>
+                We'll patch your web server against the <a href="http://heartbleed.com/" target="_blank">heartbleed vulnerability</a>.
+                <br>
+                100% Money-back Guaranteed.
             </h3>
             <p class="lead">
-                Enter the hostname of a server to test it for CVE-2014-0160.
+                Enter the hostname of a server to test it for Heartbleed:
             </p>
             <p>
-            <form class="form-inline" role="form">
+            </p><form class="form-inline" role="form">
               <div class="form-group">
                 <input type="text" class="form-control" id="hostname" placeholder="example.com[:443]" autocapitalize="off" autocorrect="off">
               </div>
-              <button type="submit" class="btn btn-primary btn-lg" id="go">Go!</button>
+              <button type="submit" class="btn btn-primary btn-lg" id="go">Test server</button>
             </form>
-        </p>
+        <p></p>
         <h3 class="bg-success bleed bleed-safe">
-            All good, <span class="hostname"></span> seems safe!
+            Good news, <span class="hostname"></span> does not appear to need a fix
         </h3>
         <h3 class="bg-warning bleed bleed-error">
             Uh-oh, something went wrong:
             <code id="error"></code>
             <br>
-            <span class="lookfaq">Please look at the <a href="faq.html#wentwrong">FAQ</a>.</span>
+            <span class="unable">We were unable to test your server for the heartbleed vulnerability</span>
         </h3>
         <h3 class="bg-danger bleed bleed-vuln">
             <span class="hostname"></span> IS VULNERABLE.
+            <br>
         </h3>
-        <p class="bleed bleed-vuln">
-            Here is some data we pulled from the server memory:</br>
+        <div class="bleed bleed-vuln">
+            Here is some data we pulled from the server memory:<br>
             (we put <code>YELLOW SUBMARINE</code> there, and it should not have come back)
-        </p>
-        <pre id="data" class="bleed bleed-vuln"></pre>
-        <p class="bleed bleed-vuln">
-            Please <strong><a href="http://heartbleed.com/">take immediate action</a></strong>!
-        </p>
-            <p>
-                Go <a href="http://heartbleed.com/">here</a> for all your Heartbleed information needs.
-            </p>
-            <p class="donate">
-                If you want to donate something, I've put a couple of buttons <a href="faq.html#donate">here</a>.
-            </p>
         </div>
-        <div id="footer">
-            <div class="container">
-                <p class="text-muted">
-                    Built in a frenzy by <a href="http://filippo.io">Filippo Valsorda</a>.
-                    <a href="https://twitter.com/FiloSottile">Twitter</a>,
-                    <a href="https://github.com/FiloSottile">Github</a>.
-                    <3
-                </p>
-            </div>
-        </div><!-- /.container -->
-        <!-- Load JS here for greater good =============================-->
-        <script src="js/jquery-1.8.3.min.js" type="text/javascript">
-</script><script src="js/jquery-ui-1.10.3.custom.min.js" type="text/javascript">
-</script><script src="js/jquery.ui.touch-punch.min.js" type="text/javascript">
-</script><script src="js/bootstrap.min.js" type="text/javascript">
-</script><script src="js/bootstrap-select.js" type="text/javascript">
-</script><script src="js/bootstrap-switch.js" type="text/javascript">
-</script><script src="js/flatui-checkbox.js" type="text/javascript">
-</script><script src="js/flatui-radio.js" type="text/javascript">
-</script><script src="js/jquery.tagsinput.js" type="text/javascript">
-</script><script src="js/jquery.placeholder.js" type="text/javascript">
-</script><script src="js/nprogress.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-$( "form" ).submit(function( event ) {
-    $('button').attr('disabled', 'disabled');
-  var host = $( "input:first" ).val();
-    $(".bleed").hide()
-    NProgress.start();
-    $.getJSON( "http://bleed-1161785939.us-east-1.elb.amazonaws.com/bleed/"+host, function( data ) {
-        $('button').removeAttr('disabled')
-        NProgress.done();
-        // console.log(data);
-        $('.hostname').text(host);
-        window.location.hash = host;
-        if (data.code == 0){
-            $('#data').text(data.data);
-            $(".bleed-vuln").show()
-        } else if (data.code == 1) {
-            $(".bleed-safe").show()
-        } else {
-            $('#error').text(data.error);
-            $(".bleed-error").show()
-        }
-  });
-  event.preventDefault();
-});
+        <pre id="data" class="bleed bleed-vuln"></pre>
+        <div class="bleed bleed-vuln">
+          <strong>Schedule a fix from our system administrators for $4983</strong>
+        </div>
+
+        <h3 class="bg-warning banner">
+          Ready to purchase?
+
+          <form action="" method="POST">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_live_zhAbKWZrAMThsaNCdQGhwecJ"
+              data-amount="498300"
+              data-name="Heartbleed patch"
+              data-description="We'll contact you via email"
+              data-label="Pay with Card ($4983)">
+            </script>
+          </form>
+        </h3>
+
+        <div class="about">
+          <img class="nick" src="http://reenhanced.com/images/nick-headshot.png" align="baseline">
+          <p>
+          Hi, I'm Nick Hance. I've run <a href="http://reenhanced.com" target="_blank">reenhanced</a> since 2005 and have been interested in computer security since 1998. I can't wait to help you patch your server against the heartbleed vulnerability.
+          </p>
+          <p>I'm offering a 100% money-back guarantee with this. If we fail to patch your server as reported by this and other tools, I'll refund your money in full. Call me for more information 215-804-9408 (Monday - Friday 9AM-5PM EST)</p>
+        </div>
+      </div>
+      <div id="footer">
+        <div class="container">
+          <p class="text-muted">
+          Service provided by <a href="http://reenhanced.com/">reenhanced</a>. Design and lookup tool credit to <a href="http://filippo.io">Filippo Valsorda</a>.
+          </p>
+        </div>
+      </div><!-- /.container -->
+      <!-- Load JS here for greater good =============================-->
+      <script src="js/jquery-1.8.3.min.js" type="text/javascript">
+        </script><script src="js/jquery-ui-1.10.3.custom.min.js" type="text/javascript">
+        </script><script src="js/jquery.ui.touch-punch.min.js" type="text/javascript">
+        </script><script src="js/bootstrap.min.js" type="text/javascript">
+        </script><script src="js/bootstrap-select.js" type="text/javascript">
+        </script><script src="js/bootstrap-switch.js" type="text/javascript">
+        </script><script src="js/flatui-checkbox.js" type="text/javascript">
+        </script><script src="js/flatui-radio.js" type="text/javascript">
+        </script><script src="js/jquery.tagsinput.js" type="text/javascript">
+        </script><script src="js/jquery.placeholder.js" type="text/javascript">
+        </script><script src="js/nprogress.js" type="text/javascript">
+      </script>
+      <script type="text/javascript">
+        $( "form" ).submit(function( event ) {
+            $('button').attr('disabled', 'disabled');
+            var host = $( "input:first" ).val();
+            $(".bleed").hide()
+            NProgress.start();
+            $.getJSON( "http://bleed-1161785939.us-east-1.elb.amazonaws.com/bleed/"+host, function( data ) {
+              $('button').removeAttr('disabled')
+              NProgress.done();
+              $('.hostname').text(host);
+              window.location.hash = host;
+              if (data.code == 0){
+              $('#data').text(data.data);
+              $(".bleed-vuln").show()
+              } else if (data.code == 1) {
+              $(".bleed-safe").show()
+              } else {
+              $('#error').text(data.error);
+              $(".bleed-error").show()
+              }
+              });
+            event.preventDefault();
+        });
 
 if (window.location.hash != "#" && window.location.hash != "") {
-    $( "input:first" ).val(window.location.hash.substr(1));
-    $( "form" ).submit();
+  $( "input:first" ).val(window.location.hash.substr(1));
+  $( "form" ).submit();
 }
-
-if (document.referrer) $.post("http://ec2-54-224-217-241.compute-1.amazonaws.com", document.referrer);
 </script>
-    </body>
+</body>
 </html>
